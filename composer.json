@@ -1,5 +1,18 @@
 {
   "name": "jitsu/util",
+  "description": "General-purpose utilities for PHP",
+  "keywords": ["utility", "reflection", "introspection", "singleton", "lazy"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brian DuSell",
+      "email": "bdusell@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
   "autoload": {
     "psr-4": {
       "Jitsu\\": "src/"
