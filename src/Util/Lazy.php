@@ -3,10 +3,13 @@
 namespace Jitsu\Util;
 
 /**
- * A base class for a class "decorator" which lazily instantiates objects of a
- * certain class until one of their members is accessed.
+ * A base class for defining lazily-instantiated classes.
  *
- * Define `const T` in the sub-class as the name of the proxied class.
+ * Lazy objects behave just like those of another class, except they are not
+ * instantiated until the first time one of their members is accessed.
+ *
+ * Subclass this class and define `const T` in the subclass as the name of the
+ * proxied class. The subclass is the lazy class.
  */
 class Lazy {
 
@@ -72,6 +75,10 @@ class Lazy {
 		return $this->instance->__wakeup();
 	}
 
+	/**
+	 * Instantiate the underlying object without needing to reference one
+	 * of its members.
+	 */
 	public function instantiate() {
 		if($this->instance === null) {
 			$class = constant(get_called_class() . '::T');
@@ -80,6 +87,11 @@ class Lazy {
 		}
 	}
 
+	/**
+	 * Tell whether the underlying object has been instantiated.
+	 *
+	 * @return bool
+	 */
 	public function isInstantiated() {
 		return $this->instance !== null;
 	}

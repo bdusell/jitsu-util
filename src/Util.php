@@ -46,7 +46,7 @@ class Util {
 	 * @param mixed $args,...
 	 * @return mixed The last argument.
 	 */
-	public static function p(/* $arg1, ... */) {
+	public static function p(/* $args... */) {
 		$first = true;
 		foreach(func_get_args() as $arg) {
 			if(!$first) echo ' ';
@@ -68,8 +68,8 @@ class Util {
 	 * @param string $filename
 	 * @param array|null $variables
 	 */
-	public static function template() {
-		if(func_num_args() > 1) extract(func_get_arg(1));
+	public static function template(/* $filename, $variables */) {
+		if(func_num_args() > 1 && is_array(func_get_arg(1))) extract(func_get_arg(1));
 		include func_get_arg(0);
 	}
 

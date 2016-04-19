@@ -5,7 +5,7 @@ namespace Jitsu\Util;
 /**
  * A mixin for creating singleton classes.
  *
- * Implement `instantiate` to return some object. All methods of that object
+ * Override `instantiate` to return some object. All methods of that object
  * become available as static methods of the derived class, and the object is
  * only instantiated when one of these methods is called.
  */
@@ -13,10 +13,20 @@ trait Singleton {
 
 	private static $instance = null;
 
+	/**
+	 * Override this method to return the singleton instance.
+	 *
+	 * @return object
+	 */
 	protected function instantiate() {
 		throw new \BadMethodCallException('instantiate is not implemented');
 	}
 
+	/**
+	 * Get the singleton instance.
+	 *
+	 * @return object
+	 */
 	public static function instance() {
 		if(self::$instance === null) {
 			$class = get_called_class();
