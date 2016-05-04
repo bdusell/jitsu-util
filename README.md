@@ -3,11 +3,19 @@ jitsu/util
 
 This package includes a number of general-purpose utilities for PHP.
 
+This package is part of [Jitsu](https://github.com/bdusell/jitsu).
+
 ## Installation
+
+Install this package with [Composer](https://getcomposer.org/):
 
 ```sh
 composer require jitsu/util
 ```
+
+## Namespace
+
+The class is defined under the namespace `Jitsu`.
 
 ## API
 
