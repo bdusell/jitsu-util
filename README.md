@@ -57,7 +57,7 @@ into the middle of an expression to print an intermediate value.
 |   | Type | Description |
 |---|------|-------------|
 | **`$args,...`** | `mixed` |  |
-| returns | `mixed` | The last argument.  |
+| returns | `mixed` | The last argument. |
 
 #### Util::template($filename, $variables)
 
@@ -211,8 +211,8 @@ Call a function by a certain name.
 |   | Type | Description |
 |---|------|-------------|
 | **`$name`** | `string` |  |
-| **`$args,...`** | `mixed` | Arguments to the function.  |
-| returns | `mixed` | Whatever is returned by the called function.  |
+| **`$args,...`** | `mixed` | Arguments to the function. |
+| returns | `mixed` | Whatever is returned by the called function. |
 
 #### MetaUtil::callMethod($obj, $name, $args...)
 
@@ -222,8 +222,8 @@ Call a method by a certain name on an object.
 |---|------|-------------|
 | **`$obj`** | `object` |  |
 | **`$name`** | `string` |  |
-| **`$args,...`** | `mixed` | Arguments to the method.  |
-| returns | `mixed` | Whatever is returned by the called method.  |
+| **`$args,...`** | `mixed` | Arguments to the method. |
+| returns | `mixed` | Whatever is returned by the called method. |
 
 #### MetaUtil::callStaticMethod($class\_name, $name, $args...)
 
@@ -233,8 +233,8 @@ Call a static method by a certain name from a certain class.
 |---|------|-------------|
 | **`$class_name`** | `string` |  |
 | **`$name`** | `string` |  |
-| **`$args,...`** | `mixed` | Arguments to the method.  |
-| returns | `mixed` | Whatever is returned by the called method.  |
+| **`$args,...`** | `mixed` | Arguments to the method. |
+| returns | `mixed` | Whatever is returned by the called method. |
 
 #### MetaUtil::callConstructor($class\_name, $args...)
 
@@ -243,8 +243,8 @@ Call the constructor of a class by a certain name.
 |   | Type | Description |
 |---|------|-------------|
 | **`$class_name`** | `string` |  |
-| **`$args,...`** | `mixed` | Arguments to the constructor.  |
-| returns | `object` | The newly constructed object, as if `new` had been used.  |
+| **`$args,...`** | `mixed` | Arguments to the constructor. |
+| returns | `object` | The newly constructed object, as if `new` had been used. |
 
 #### MetaUtil::applyFunction($name, $args)
 
@@ -286,7 +286,7 @@ Call a class constructor with an array of arguments.
 |---|------|-------------|
 | **`$class_name`** | `string` |  |
 | **`$args`** | `array` |  |
-| returns | `object` | The newly constructed object, as if `new` had been used.  |
+| returns | `object` | The newly constructed object, as if `new` had been used. |
 
 #### MetaUtil::typeName($value)
 
@@ -338,6 +338,30 @@ instantiated until the first time one of their members is accessed.
 Subclass this class and define `const T` in the subclass as the name of the
 proxied class. The subclass is the lazy class.
 
+#### new Lazy()
+
+#### $lazy->\_\_call($name, $args)
+
+#### $lazy->\_\_get($name)
+
+#### $lazy->\_\_set($name, $value)
+
+#### $lazy->\_\_isset($name)
+
+#### $lazy->\_\_unset($name)
+
+#### $lazy->\_\_toString()
+
+#### $lazy->\_\_clone()
+
+#### $lazy->\_\_invoke()
+
+#### $lazy->\_\_debugInfo()
+
+#### $lazy->\_\_sleep()
+
+#### $lazy->\_\_wakeup()
+
 #### $lazy->instantiate()
 
 Instantiate the underlying object without needing to reference one
@@ -359,7 +383,7 @@ Override `instantiate` to return some object. All methods of that object
 become available as static methods of the derived class, and the object is
 only instantiated when one of these methods is called.
 
-#### protected function instantiate()
+#### $singleton->instantiate() [protected]
 
 Override this method to return the singleton instance.
 
@@ -374,4 +398,6 @@ Get the singleton instance.
 |   | Type |
 |---|------|
 | returns | `object` |
+
+#### Singleton::\_\_callStatic($name, $args)
 
